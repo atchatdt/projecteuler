@@ -1,3 +1,4 @@
+console.time('t')
 let str = `73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511
@@ -25,10 +26,11 @@ let strKQ = ''
 
 for (let j = 0; j < str.length; j++) {
     let strArr = str.slice(j, j + 13)
-    let result = strArr.split('').reduce((a, b) => a * parseFloat(b), 1)
+    let result = strArr.split('').reduce((a, b) => a * parseInt(b), 1)
     if (result > max && result > 1000) {
         max = result
         strKQ = strArr
     }
 }
 console.log({ max, strKQ })
+console.timeEnd('t')
