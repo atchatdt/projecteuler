@@ -1,27 +1,17 @@
-
-strTotal = ''
-
-
-def inputString():
-    str1 = input()
-    str2 = input()
-    strTotal += str1 + '-' + str2 + ';'
+from math import *
 
 
-def stringMatch(str1, str2):
-    if str1 not in str2:
-        return ' '
-    length1 = len(str1)
-    result = ''
-    for i in range(len(str2)):
-        temp = str2[i:i+length1]
-        if temp == str1:
-            result += str(i) + ' '
-    return result  # .strip()
+def divisors(n):
+    limit = int(sqrt(n))
+    divisors_list = []
+    for i in range(1, limit+1, 1):
+        if n % i == 0:
+            divisors_list.append(i)
+            if i != n/i:
+                divisors_list.append(n/i)
+                print(i)
+                print(n/i)
+    return (divisors_list)
 
 
-print(stringMatch(str1, str2))
-
-# print(stringMatch('p', 'Popup'))
-# print(stringMatch('peek a boo', 'you speek a bootiful language'))
-# print(stringMatch('anas', 'bananananaspaj'))
+print(divisors(20))
